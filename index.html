@@ -22,30 +22,32 @@
 
         // cycle through different text colors
         var textColors = ["darkcyan", "darkslategray", "darkgreen", "green"];
-        var currTextColorIdx = 3;
-        var textColor = "green";
+        var currTextColor = "green";
+        var currTextColorIdx = textColors.indexOf(currTextColor);
 
         function changeTextColor() {
-            currTextColorIdx = (currTextColorIdx + 1 == textColors.length) ? 0 : currTextColorIdx + 1;
-            textColor = textColors[currTextColorIdx];
+            currTextColorIdx = (currTextColorIdx + 1 == textColors.length)
+                    ? 0
+                    : currTextColorIdx + 1;
+            currTextColor = textColors[currTextColorIdx];
         }
 
         function newCharacter() {
             var characterToRender = Math.random() < 0.5 ? "0" : "1";
 
             var character = svg.append("text")
-                .text(characterToRender)
-                .attr("font-family", "monospace")
-                .attr("font-size", 28)
-                .attr("x", Math.random() * window.innerWidth)
-                .attr("y", -800 * Math.random())
-                .attr("fill", textColor);
+                    .text(characterToRender)
+                    .attr("font-family", "monospace")
+                    .attr("font-size", 28)
+                    .attr("x", Math.random() * window.innerWidth)
+                    .attr("y", -800 * Math.random())
+                    .attr("fill", currTextColor);
             
             character.transition()
-                .duration(8000 * Math.random())
-                .ease(d3.easeLinear)
-                .attr("y", window.innerHeight + 800)
-                .remove();
+                    .duration(8000 * Math.random())
+                    .ease(d3.easeLinear)
+                    .attr("y", window.innerHeight + 800)
+                    .remove();
         }
 
         setInterval(newCharacter, 0.2);
