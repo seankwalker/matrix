@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- d3.js -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+
+    <body>
+        <!-- take up the entire viewport -->
+        <svg id="svg" style="bottom:0;height:100%;left:0;position:fixed;right:0;top:0;width:100%;" />
+    </body>
+
+    <script>
+        // set background color to black
+        var svg = d3.select("#svg").style("background-color", "black");
+
+        // cycle through different colored text 
+        var textColors = ["darkgreen", "green"];
+        var currTextColorIdx = 1;
+        var textColor = "green";
+
+        function changeTextColor() {
+            currTextColorIdx++;
+            currTextColorIdx %= textColors.length;
+            textColor = textColors[currTextColorIdx];
+        }
+
+        function newCharacter() {
+            var characterToRender = Math.random() < 0.5 ? "0" : "1";
+
+            var character = svg.append("text")
+                .text(characterToRender)
+                .attr("font-family", "monospace")
+                .attr("font-size", 28)
+                .attr("x", Math.random() * window.innerWidth)
+                .attr("y", -800 * Math.random())
+                .attr("fill", textColor);
+            
+            character.transition()
+                .duration(6000 * Math.random())
+                .attr("y", window.innerHeight + 800)
+                .remove();
+        }
+
+        setInterval(newCharacter, 0.2);
+        setInterval(changeTextColor, 1);
+    </script>
+</html>
