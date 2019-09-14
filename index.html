@@ -21,8 +21,8 @@
         var svg = d3.select("#svg").style("background-color", "black");
 
         // cycle through different text colors
-        var textColors = ["darkgreen", "green"];
-        var currTextColorIdx = 1;
+        var textColors = ["darkcyan", "darkslategray", "darkgreen", "green"];
+        var currTextColorIdx = 3;
         var textColor = "green";
 
         function changeTextColor() {
@@ -42,7 +42,8 @@
                 .attr("fill", textColor);
             
             character.transition()
-                .duration(11000 * Math.random())
+                .duration(8000 * Math.random())
+                .ease(d3.easeLinear)
                 .attr("y", window.innerHeight + 800)
                 .remove();
         }
