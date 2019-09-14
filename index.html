@@ -22,8 +22,7 @@
         var textColor = "green";
 
         function changeTextColor() {
-            currTextColorIdx++;
-            currTextColorIdx %= textColors.length;
+            currTextColorIdx = (currTextColorIdx + 1 == textColors.length) ? 0 : currTextColorIdx + 1;
             textColor = textColors[currTextColorIdx];
         }
 
