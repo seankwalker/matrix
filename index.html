@@ -2,7 +2,10 @@
 <html>
     <head>
         <!-- 😎 -->
-        <link href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/smiling-face-with-sunglasses_1f60e.png" rel="icon" />
+        <link
+            href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/smiling-face-with-sunglasses_1f60e.png"
+            rel="icon"
+        />
 
         <!-- d3.js -->
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -13,7 +16,10 @@
 
     <body style="cursor: none">
         <!-- take up the entire viewport -->
-        <svg id="svg" style="bottom:0;height:100%;left:0;position:fixed;right:0;top:0;width:100%;" />
+        <svg
+            id="svg"
+            style="bottom:0;height:100%;left:0;position:fixed;right:0;top:0;width:100%;"
+        />
     </body>
 
     <script>
@@ -21,12 +27,156 @@
         var svg = d3.select("#svg").style("background-color", "black");
 
         // cycle through different text colors
-        var textColors = ["IndianRed","LightCoral","Salmon","DarkSalmon","LightSalmon","Crimson","Red","FireBrick","DarkRed","Pink","LightPink","HotPink","DeepPink","MediumVioletRed","PaleVioletRed","LightSalmon","Coral","Tomato","OrangeRed","DarkOrange","Orange","Gold","Yellow","LightYellow","LemonChiffon","LightGoldenrodYellow","PapayaWhip","Moccasin","PeachPuff","PaleGoldenrod","Khaki","DarkKhaki","Lavender","Thistle","Plum","Violet","Orchid","Fuchsia","Magenta","MediumOrchid","MediumPurple","RebeccaPurple","BlueViolet","DarkViolet","DarkOrchid","DarkMagenta","Purple","Indigo","SlateBlue","DarkSlateBlue","MediumSlateBlue","GreenYellow","Chartreuse","LawnGreen","Lime","LimeGreen","PaleGreen","LightGreen","MediumSpringGreen","SpringGreen","MediumSeaGreen","SeaGreen","ForestGreen","Green","DarkGreen","YellowGreen","OliveDrab","Olive","DarkOliveGreen","MediumAquamarine","DarkSeaGreen","LightSeaGreen","DarkCyan","Teal","Aqua","Cyan","LightCyan","PaleTurquoise","Aquamarine","Turquoise","MediumTurquoise","DarkTurquoise","CadetBlue","SteelBlue","LightSteelBlue","PowderBlue","LightBlue","SkyBlue","LightSkyBlue","DeepSkyBlue","DodgerBlue","CornflowerBlue","MediumSlateBlue","RoyalBlue","Blue","MediumBlue","DarkBlue","Navy","MidnightBlue","Cornsilk","BlanchedAlmond","Bisque","NavajoWhite","Wheat","BurlyWood","Tan","RosyBrown","SandyBrown","Goldenrod","DarkGoldenrod","Peru","Chocolate","SaddleBrown","Sienna","Brown","Maroon","White","Snow","HoneyDew","MintCream","Azure","AliceBlue","GhostWhite","WhiteSmoke","SeaShell","Beige","OldLace","FloralWhite","Ivory","AntiqueWhite","Linen","LavenderBlush","MistyRose","Gainsboro","LightGray","Silver","DarkGray","Gray","DimGray","LightSlateGray","SlateGray","DarkSlateGray"];
+        var textColors = [
+            "IndianRed",
+            "LightCoral",
+            "Salmon",
+            "DarkSalmon",
+            "LightSalmon",
+            "Crimson",
+            "Red",
+            "FireBrick",
+            "DarkRed",
+            "Pink",
+            "LightPink",
+            "HotPink",
+            "DeepPink",
+            "MediumVioletRed",
+            "PaleVioletRed",
+            "LightSalmon",
+            "Coral",
+            "Tomato",
+            "OrangeRed",
+            "DarkOrange",
+            "Orange",
+            "Gold",
+            "Yellow",
+            "LightYellow",
+            "LemonChiffon",
+            "LightGoldenrodYellow",
+            "PapayaWhip",
+            "Moccasin",
+            "PeachPuff",
+            "PaleGoldenrod",
+            "Khaki",
+            "DarkKhaki",
+            "Lavender",
+            "Thistle",
+            "Plum",
+            "Violet",
+            "Orchid",
+            "Fuchsia",
+            "Magenta",
+            "MediumOrchid",
+            "MediumPurple",
+            "RebeccaPurple",
+            "BlueViolet",
+            "DarkViolet",
+            "DarkOrchid",
+            "DarkMagenta",
+            "Purple",
+            "Indigo",
+            "SlateBlue",
+            "DarkSlateBlue",
+            "MediumSlateBlue",
+            "GreenYellow",
+            "Chartreuse",
+            "LawnGreen",
+            "Lime",
+            "LimeGreen",
+            "PaleGreen",
+            "LightGreen",
+            "MediumSpringGreen",
+            "SpringGreen",
+            "MediumSeaGreen",
+            "SeaGreen",
+            "ForestGreen",
+            "Green",
+            "DarkGreen",
+            "YellowGreen",
+            "OliveDrab",
+            "Olive",
+            "DarkOliveGreen",
+            "MediumAquamarine",
+            "DarkSeaGreen",
+            "LightSeaGreen",
+            "DarkCyan",
+            "Teal",
+            "Aqua",
+            "Cyan",
+            "LightCyan",
+            "PaleTurquoise",
+            "Aquamarine",
+            "Turquoise",
+            "MediumTurquoise",
+            "DarkTurquoise",
+            "CadetBlue",
+            "SteelBlue",
+            "LightSteelBlue",
+            "PowderBlue",
+            "LightBlue",
+            "SkyBlue",
+            "LightSkyBlue",
+            "DeepSkyBlue",
+            "DodgerBlue",
+            "CornflowerBlue",
+            "MediumSlateBlue",
+            "RoyalBlue",
+            "Blue",
+            "MediumBlue",
+            "DarkBlue",
+            "Navy",
+            "MidnightBlue",
+            "Cornsilk",
+            "BlanchedAlmond",
+            "Bisque",
+            "NavajoWhite",
+            "Wheat",
+            "BurlyWood",
+            "Tan",
+            "RosyBrown",
+            "SandyBrown",
+            "Goldenrod",
+            "DarkGoldenrod",
+            "Peru",
+            "Chocolate",
+            "SaddleBrown",
+            "Sienna",
+            "Brown",
+            "Maroon",
+            "White",
+            "Snow",
+            "HoneyDew",
+            "MintCream",
+            "Azure",
+            "AliceBlue",
+            "GhostWhite",
+            "WhiteSmoke",
+            "SeaShell",
+            "Beige",
+            "OldLace",
+            "FloralWhite",
+            "Ivory",
+            "AntiqueWhite",
+            "Linen",
+            "LavenderBlush",
+            "MistyRose",
+            "Gainsboro",
+            "LightGray",
+            "Silver",
+            "DarkGray",
+            "Gray",
+            "DimGray",
+            "LightSlateGray",
+            "SlateGray",
+            "DarkSlateGray"
+        ];
         var currTextColor = "green";
         var currTextColorIdx = textColors.indexOf(currTextColor);
 
         function changeTextColor() {
-            currTextColorIdx = (currTextColorIdx + 1 == textColors.length)
+            currTextColorIdx =
+                currTextColorIdx + 1 == textColors.length
                     ? 0
                     : currTextColorIdx + 1;
             currTextColor = textColors[currTextColorIdx];
@@ -35,19 +185,21 @@
         function newCharacter() {
             var characterToRender = Math.random() < 0.5 ? "0" : "1";
 
-            var character = svg.append("text")
-                    .text(characterToRender)
-                    .attr("font-family", "monospace")
-                    .attr("font-size", 28)
-                    .attr("x", Math.random() * window.innerWidth)
-                    .attr("y", -800 * Math.random())
-                    .attr("fill", currTextColor);
-            
-            character.transition()
-                    .duration(8000 * Math.random())
-                    .ease(d3.easeLinear)
-                    .attr("y", window.innerHeight + 800)
-                    .remove();
+            var character = svg
+                .append("text")
+                .text(characterToRender)
+                .attr("font-family", "monospace")
+                .attr("font-size", 28)
+                .attr("x", Math.random() * window.innerWidth)
+                .attr("y", -800 * Math.random())
+                .attr("fill", currTextColor);
+
+            character
+                .transition()
+                .duration(8000 * Math.random())
+                .ease(d3.easeLinear)
+                .attr("y", window.innerHeight + 800)
+                .remove();
         }
 
         setInterval(newCharacter, 0.2);
